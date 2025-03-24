@@ -181,9 +181,98 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmKkvie01ym1iXZacDlXHtfhDgqyv8h7UQ5J8B6-UEHsGQ9UPiL87OUeKb&s=10" alt="">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSWR1UprJdxH4m5SR3oQm9px4iHkErjiumq6h7mXJGPkNBTV8jRGXrK5x&s=10" alt="">
   </div>
-  <!-- TradingView Widgets -->
+  <!-- cont.Tradingview -->
   <div class="btc-cont">
     <div class="btc">
+      <!-- News -->
+      <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+  {
+  "feedMode": "all_symbols",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "width": 400,
+  "height": 550,
+  "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
+      <!-- Stock -->
+       <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+  {
+  "exchanges": [],
+  "dataSource": "SPX500",
+  "grouping": "sector",
+  "blockSize": "market_cap_basic",
+  "blockColor": "change",
+  "locale": "en",
+  "symbolUrl": "",
+  "colorTheme": "light",
+  "hasTopBar": true,
+  "isDataSetEnabled": true,
+  "isZoomEnabled": true,
+  "hasSymbolTooltip": true,
+  "isMonoSize": false,
+  "width": 400,
+  "height": 550
+}
+  </script>
+</div>
+<!-- Crypto -->
+       <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
+  {
+  "dataSource": "Crypto",
+  "blockSize": "market_cap_calc",
+  "blockColor": "change",
+  "locale": "en",
+  "symbolUrl": "",
+  "colorTheme": "light",
+  "hasTopBar": true,
+  "isDataSetEnabled": true,
+  "isZoomEnabled": true,
+  "hasSymbolTooltip": true,
+  "isMonoSize": false,
+  "width": 400,
+  "height": 550
+}
+  </script>
+</div>
+<!-- Forex -->
+       <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+  {
+  "width": "400",
+  "height": "550",
+  "currencies": [
+    "EUR",
+    "USD",
+    "JPY",
+    "GBP",
+    "CHF",
+    "AUD",
+    "CAD",
+    "NZD",
+    "CNY",
+    "NOK"
+  ],
+  "isTransparent": true,
+  "colorTheme": "Dark",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- All live Pair -->
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
@@ -370,4 +459,4 @@
       Our Pairs Available Soon
     </div>
 </body>
-</html>
+  </html>
