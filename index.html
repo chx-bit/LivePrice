@@ -61,11 +61,11 @@
       min-width: 300px;
       gap: 35px;
     }
-    .tradingview-widget-container {
+    .tradingview-widget-container, .stt{
       max-width: 450px;
       backdrop-filter: blur(5px);
       margin: 10px;
-      padding: 15px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: -3px -3px 10px rgba(255,255,255,1), 3px 3px 10px rgba(0,0,0,0.8);
     }
@@ -93,7 +93,7 @@
     #texttop .marquee-content {
       display: inline-block;
       padding-left: 100%;
-      animation: marquee 5s linear infinite;
+      animation: marquee 30s linear infinite;
     }
     .ctm {
       margin: 40px;
@@ -106,7 +106,13 @@
     .stt {
       text-align: center;
       font: 500 14px raleway;
-      margin: 15px 40px;
+      margin: 15px auto;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      max-width: 400px;
+      flex-direction: column;
     }
     #stt1 {
       background: #ffffff73;
@@ -123,6 +129,19 @@
     .scroll-container img {
       padding: 10px;
       max-height: 70px;
+    }
+    .newseco {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .newseco .tradingview-widget-container {
+      max-width: none !important; 
+      width: 100%;
+      
     }
 
     @keyframes marquee {
@@ -142,6 +161,9 @@
       }
       .nvbtn {
         display: none;
+      }
+      .newseco {
+        width: 100%;
       }
     }
   </style>
@@ -165,12 +187,126 @@
     <div class="ctm">
       <div id="texttop">
         <div class="marquee-content">
-          BTCUSDT ETHUSDT XRPUSDT USDT XAUUSD EURUSD GBPUSD USDJPY US30 US100
+          EURUSD GBPUSD USDJPY USDCHF USDCAD AUDUSD NZDUSD EURGBP EURCHF EURJPY GBPJPY EURAUD EURNZD EURCAD EURZAR USDMXN USDCNH EURSEK EURTRY EURPLN GBPCHF AUDJPY NZDJPY CADCHF AUDCAD AUDCHF NZDCHF EURHUF USDZAR USDBRL USDTRY USDRUB USDHKD USDSGD USDNOK USDDKK USDCZK USDPLN USDMYR GBPTRY BTCUSD ETHUSD XRPUSD BNBUSD DOGEUSD SOLUSD ADAUSD MATICUSD DOTUSD LTCUSD TRXUSD AVAXUSD SHIBUSD LINKUSD UNIUSD XMRUSD ETCUSD BCHUSD APEUSD ALGOUSD SANDUSD AXSUSD XLMUSD ATOMUSD FTTUSD FXSUSD NEARUSD EOSUSD FILUSD ICPUSD CHZUSD FTMUSD KSMUSD VETUSD GRTUSD WAVESUSD KLAYUSD XTZUSD DGBUSD PEPEUSD SPX US100 US30 US2000 DE40 UK100 JP225 HK50 CN50 AUS200 FR40 ES35 CH20 EU50 IT40 VIX DXY NK225 HSCEI NIFTY50
         </div>
       </div>
     </div>
     <div class="stt">
-      Only 10 Pairs Available Now 
+      Other Pairs will be available soon
+        <div class="tradingview-widget">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+       
+      "proName": "BINANCE:BTCUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:ETHUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:SOLUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:XRPUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:ADAUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:DOGEUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:BNBUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:LTCUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:SUIUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:PEPEUSDT"
+    },
+    {
+      "description": "",
+      "proName": "FX:EURUSD"
+    },
+    {
+      "description": "",
+      "proName": "FX:GBPUSD"
+    },
+    {
+      "description": "",
+      "proName": "FX:USDJPY"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:GBPJPY"
+    },
+    {
+      "description": "",
+      "proName": "FX:AUDUSD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:USDCAD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:USDCHF"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:NZDUSD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:EURJPY"
+    },
+    {
+      "description": "",
+      "proName": "SP:SPX"
+    },
+    {
+      "description": "",
+      "proName": "TVC:DXY"
+    },
+    {
+      "description": "",
+      "proName": "CAPITALCOM:US100"
+    },
+    {
+      "description": "",
+      "proName": "BLACKBULL:US30"
+    },
+    {
+      "description": "",
+      "proName": "CRYPTOCAP:USDT.D"
+    },
+    {
+      "description": "",
+      "proName": "CRYPTOCAP:USDT"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": true,
+  "displayMode": "compact",
+  "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
     </div>
   </div>
   <div class="scroll-container">
@@ -184,10 +320,13 @@
   <!-- cont.Tradingview -->
   <div class="btc-cont">
     <div class="btc">
+      <!-- Ticker -->
+
+
+
       <!-- News -->
       <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
   {
   "feedMode": "all_symbols",
@@ -203,7 +342,7 @@
       <!-- Stock -->
        <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+ 
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
   {
   "exchanges": [],
@@ -227,7 +366,7 @@
 <!-- Crypto -->
        <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+ 
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
   {
   "dataSource": "Crypto",
@@ -249,7 +388,7 @@
 <!-- Forex -->
        <div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+ 
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
   {
   "width": "400",
@@ -455,7 +594,24 @@
       </div>
     </div>
   </div>
-    <div class="stt" id="stt1">
+  <!-- News economy -->
+<div class="newseco">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+    {
+      "colorTheme": "light",
+      "isTransparent": true,
+      "width": "90%",
+      "height": "550",
+      "locale": "en",
+      "importanceFilter": "0,1",
+      "countryFilter": "us,ca,jp,eu,nz,au"
+    }
+    </script>
+  </div>
+</div>
+  <div class="stt" id="stt1">
       Our Pairs Available Soon
     </div>
 </body>
