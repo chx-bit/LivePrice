@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>live price</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+    /* Apply background to the body element */
+    body {
+      background: url('https://media-hosting.imagekit.io//b05e52a8f1b64dd3/image_fx_.jpg?Expires=1837364175&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=WUwbLiu4jEbRqlYVC5wt9586F7nizeepUzsz~z~dtMab26ZQZP7h6L7fAcRlEHRMgWMMfXgDWDffZ5sBAvSDkg2pO6EVD8ybVYnOsZzEpTqHtjl~zfXuXgYUuJSRVC8ZQeRxo5WrLeE4C0t~YGaX4Jg5WBYSY5svioSnUv6nJ2qJisjucpdCDJuE8svavZb2VfIIisktyqTkZwIVDydRfkzrOYvYT5GnVLZ0bf3XU4lqbClOBL1~SfIrGnWBNg4Yehf6FilQNb23uBPMLnBNh2WFcS7UnyOH2QFpfdSnX68RBfTp1MyZ0QN38nVa0xtVQATEpdIivVL~ZgRHjODczA__') center / cover no-repeat fixed;
+      color: #181818;
+      margin: 0; 
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Universal Reset for margins/padding */
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: transparent;
+      backdrop-filter: blur(5px);
+      border-bottom: 1px solid #18181873;
+    }
+    .menu {
+      display: flex;
+      gap: 7px;
+      font: bold 14px raleway;
+      align-items: center;
+    }
+    .title {
+      font: 550 18px poppins;
+      display: flex;
+      color: rgba(30, 153, 0, 0.8);
+      background-color: transparent;
+      align-items: center;
+    }
+    .nvbtn {
+      cursor: pointer;
+      font: 700 20px poppins;
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      margin-right: 15px;
+    }
+    .btc {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      min-width: 300px;
+      gap: 35px;
+    }
+    .tradingview-widget-container, .stt{
+      max-width: 450px;
+      backdrop-filter: blur(5px);
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: -3px -3px 10px rgba(255,255,255,1), 3px 3px 10px rgba(0,0,0,0.8);
+    }
+    .titletop {
+      text-align: center;
+      font: 800 20px "DM Sans", sans-serif;
+      margin: 40px;
+      padding: 15px;
+      backdrop-filter: blur(5px);
+      border-radius: 10px; 
+      background: rgba(255,255,255,0.1);
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.5),
+      -3px -3px 10px rgba(255,255,255,0.8);
+    }
+
+    /* Marquee Styles */
+    #texttop {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      font: 300 12px poppins, sans-serif;
+      padding: 5px 0;
+      box-sizing: border-box;
+    }
+    #texttop .marquee-content {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 30s linear infinite;
+    }
+    .ctm {
+      margin: 40px;
+      border-top: 1px solid #18181873;
+      border-bottom: 1px solid #18181873;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.1);
+    }
+    .stt {
+      text-align: center;
+      font: 500 14px raleway;
+      margin: 15px auto;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      max-width: 400px;
+      flex-direction: column;
+    }
+    #stt1 {
+      background: #ffffff73;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .scroll-container {
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
+      
+    }
+
+    .scroll-container img {
+      padding: 10px;
+      max-height: 70px;
+    }
+    .newseco {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+    .newseco .tradingview-widget-container {
+      max-width: none !important; 
+      width: 100%;
+      
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .menu {
+        display: none;
+      }
+    }
+    @media (min-width: 601px) {
+      .menu {
+        display: flex;
+      }
+      .nvbtn {
+        display: none;
+      }
+      .newseco {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="title">LIve Price Data</div>
+    <div class="menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Crypto</a>
+      <a href="#">Forex</a>
+    </div>
+    <div class="nvbtn">&#9776;</div>
+  </div>
+  <!-- Page Title & Marquee -->
+  <div class="top">
+    <div class="titletop">TRACK ALL LIVE CURRENCY AND CRYPTO PRICE</div>
+    <div class="ctm">
+      <div id="texttop">
+        <div class="marquee-content">
+          EURUSD GBPUSD USDJPY USDCHF USDCAD AUDUSD NZDUSD EURGBP EURCHF EURJPY GBPJPY EURAUD EURNZD EURCAD EURZAR USDMXN USDCNH EURSEK EURTRY EURPLN GBPCHF AUDJPY NZDJPY CADCHF AUDCAD AUDCHF NZDCHF EURHUF USDZAR USDBRL USDTRY USDRUB USDHKD USDSGD USDNOK USDDKK USDCZK USDPLN USDMYR GBPTRY BTCUSD ETHUSD XRPUSD BNBUSD DOGEUSD SOLUSD ADAUSD MATICUSD DOTUSD LTCUSD TRXUSD AVAXUSD SHIBUSD LINKUSD UNIUSD XMRUSD ETCUSD BCHUSD APEUSD ALGOUSD SANDUSD AXSUSD XLMUSD ATOMUSD FTTUSD FXSUSD NEARUSD EOSUSD FILUSD ICPUSD CHZUSD FTMUSD KSMUSD VETUSD GRTUSD WAVESUSD KLAYUSD XTZUSD DGBUSD PEPEUSD SPX US100 US30 US2000 DE40 UK100 JP225 HK50 CN50 AUS200 FR40 ES35 CH20 EU50 IT40 VIX DXY NK225 HSCEI NIFTY50
+        </div>
+      </div>
+    </div>
+    <div class="stt">
+      Other Pairs will be available soon
+        <div class="tradingview-widget">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+       
+      "proName": "BINANCE:BTCUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:ETHUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:SOLUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:XRPUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:ADAUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:DOGEUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:BNBUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:LTCUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:SUIUSDT"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:PEPEUSDT"
+    },
+    {
+      "description": "",
+      "proName": "FX:EURUSD"
+    },
+    {
+      "description": "",
+      "proName": "FX:GBPUSD"
+    },
+    {
+      "description": "",
+      "proName": "FX:USDJPY"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:GBPJPY"
+    },
+    {
+      "description": "",
+      "proName": "FX:AUDUSD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:USDCAD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:USDCHF"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:NZDUSD"
+    },
+    {
+      "description": "",
+      "proName": "OANDA:EURJPY"
+    },
+    {
+      "description": "",
+      "proName": "SP:SPX"
+    },
+    {
+      "description": "",
+      "proName": "TVC:DXY"
+    },
+    {
+      "description": "",
+      "proName": "CAPITALCOM:US100"
+    },
+    {
+      "description": "",
+      "proName": "BLACKBULL:US30"
+    },
+    {
+      "description": "",
+      "proName": "CRYPTOCAP:USDT.D"
+    },
+    {
+      "description": "",
+      "proName": "CRYPTOCAP:USDT"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": true,
+  "displayMode": "compact",
+  "colorTheme": "light",
+  "locale": "en"
+}
+  </script>
+</div>
+    </div>
+  </div>
+  <div class="scroll-container">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2Wjv_AmeZvR8aRkETApty1Bt_Bg6VIf6zHhMzBOsEKSdL4HvSnghxX8L1&s=10" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnGIP8QsD0hM1n7_IXyy7JSEDWNejF96KRGy_my1ptUOjiUajuNjipPMeN&s=10" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCCbJZZ_Qikon7o_SCabiGc7ByEmPlulLJz6z71BLXji4Xf1vBOo5H_PA&s=10" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FazYxwOlKN2tUp4bJqL02z-_nDFP-Q0THg&s" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmKkvie01ym1iXZacDlXHtfhDgqyv8h7UQ5J8B6-UEHsGQ9UPiL87OUeKb&s=10" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSWR1UprJdxH4m5SR3oQm9px4iHkErjiumq6h7mXJGPkNBTV8jRGXrK5x&s=10" alt="">
+  </div>
+  <!-- cont.Tradingview -->
+  <div class="btc-cont">
+    <div class="btc">
+
+<!-- All live Pair -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BINANCE:BTCUSDT",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BINANCE:ETHUSDT",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BINANCE:XRPUSDT",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "CRYPTOCAP:USDT",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FOREXCOM:XAUUSD",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX:EURUSD",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX:GBPUSD",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "FX:USDJPY",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "CAPITALCOM:US30",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "CAPITALCOM:US100",
+          "width": "400",
+          "height": "250",
+          "locale": "en",
+          "dateRange": "4H",
+          "colorTheme": "light",
+          "isTransparent": true,
+          "autosize": true,
+          "largeChartUrl": "",
+          "noTimeScale": false,
+          "chartOnly": false
+        }
+        </script>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
